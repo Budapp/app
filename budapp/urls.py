@@ -18,5 +18,6 @@ from django.urls import include, path
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('dashboard/', include('budapp.apps.home.urls'))
+    path('auth/', include('budapp.apps.authentication.urls')),
+    path('dashboard/', include('budapp.apps.home.urls')),
 ]
