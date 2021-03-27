@@ -2,11 +2,12 @@ from django.views.generic.edit import FormView
 from django.http import HttpResponseRedirect
 
 from budapp.apps.authentication.forms import LoginForm
+from budapp.helpers import url as url_helper
 
 
 class LoginView(FormView):
     form_class = LoginForm
-    success_url = ('budapp_home_page')
+    success_url = url_helper.get_url_by_name('budapp_home_page')
     template_name = 'login.html'
 
     def get_form_kwargs(self):
@@ -22,5 +23,4 @@ class LoginView(FormView):
             return super(LoginView, self).dispatch(request, *args, **kwargs)
 
     def form_valid(self, form):
-        form.login(self.request)
         return super(LoginView, self).form_valid(form)
