@@ -15,8 +15,8 @@ class BudappAuth(object):
     def __call__(self, request):
         response = self.get_response(request)
 
-        if (not user_helper.is_authenticated(request) and
-                not url_helper.current_url_is_login(request)):
+        if (not url_helper.is_exclude_to_redirect(request) and
+                not user_helper.is_authenticated(request)):
             login_url = url_helper.get_url_by_name('budapp_login')
 
             return http.HttpResponsePermanentRedirect(login_url)
