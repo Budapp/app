@@ -38,6 +38,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'budapp.apps.core',
+    'budapp.apps.core.fields',
+    'budapp.apps.core.table',
     'budapp.apps.authentication',
     'budapp.apps.home',
 ]
@@ -123,4 +125,14 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
 
+
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, "budapp/static/"),
+]
+
 STATIC_URL = '/static/'
+# STATIC_ROOT = os.path.join(BASE_DIR, 'budapp/static')
+
+MEDIA_URL = '/uploads/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'budapp/uploads')
+SESSION_EXPIRE_AT_BROWSER_CLOSE = True
