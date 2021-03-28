@@ -1,3 +1,3 @@
 from django.db import models
 
-# Create your models here.
+from budapp.apps.core.modules.database.table.models import Table

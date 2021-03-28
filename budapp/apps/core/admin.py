@@ -1,3 +1,3 @@
 from django.contrib import admin
 
-# Register your models here.
+from budapp.apps.core.modules.database.table.admin import *
