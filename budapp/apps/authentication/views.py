@@ -7,8 +7,10 @@ from budapp.helpers import url as url_helper
 
 class LoginView(FormView):
     form_class = LoginForm
-    success_url = url_helper.get_url_by_name('budapp_home_page')
     template_name = 'login.html'
+
+    def get_success_url(self):
+        return url_helper.get_url_by_name('budapp_home_page')
 
     def get_form_kwargs(self):
         kw = super(LoginView, self).get_form_kwargs()
