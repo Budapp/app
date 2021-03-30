@@ -42,12 +42,6 @@ class Field(models.Model):
         blank=True,
         on_delete=models.CASCADE,
         related_name='table_related')
-    table_field_related = models.ForeignKey(
-        'self',
-        null=True,
-        blank=True,
-        on_delete=models.CASCADE,
-        related_name='table_field_related_related')
     table_relation_type = models.CharField(
         'Table relation type',
         choices=RELATIONAL_TYPES,

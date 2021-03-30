@@ -32,7 +32,6 @@ class FieldAdmin(admin.ModelAdmin):
         ('Relational configuration', {
             'fields': (
                 'table_related',
-                'table_field_related',
                 'table_relation_type'
             ),
         }),
