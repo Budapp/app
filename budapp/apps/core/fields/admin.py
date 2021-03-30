@@ -29,6 +29,13 @@ class FieldAdmin(admin.ModelAdmin):
         ('Validation configuration', {
             'fields': ('required', 'unique',)
         }),
+        ('Relational configuration', {
+            'fields': (
+                'table_related',
+                'table_field_related',
+                'table_relation_type'
+            ),
+        }),
     )
 
 
