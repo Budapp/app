@@ -1,6 +1,8 @@
 from django.contrib import admin
 from django.utils.html import format_html
 
+from budapp.helpers import url as url_helper
+
 from .models import (
     Form,
     FormField,
@@ -24,9 +26,13 @@ class FormAdmin(admin.ModelAdmin):
     )
 
     def go_to_form_page(self, obj):
-        return format_html('<a href="">Click to change</a>')
-    go_to_form_page.allow_tags=True
+        obj_url = url_helper.get_url_by_name(
+            'budapp_model_basic_form',
+            ** {'table_id': obj.pk})
+        return format_html(
+            f'<a href="{obj_url}" target="_blank">Click to change</a>')
 
+    go_to_form_page.allow_tags = True
 
 
 admin.site.register(Form, FormAdmin)

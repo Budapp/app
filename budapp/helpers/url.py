@@ -2,10 +2,11 @@ from django.urls import reverse
 from django.shortcuts import redirect
 
 
-def get_url_by_name(url_name, **kwags):
+def get_url_by_name(url_name, **kwargs):
     try:
-        url = reverse(url_name, kwargs=kwags)
-    except:
+        url = reverse(url_name, kwargs=kwargs)
+    except Exception as e:
+        print(e)
         url = None
     finally:
         return url

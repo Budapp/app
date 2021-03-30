@@ -20,4 +20,5 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('auth/', include('budapp.apps.authentication.urls')),
     path('dashboard/', include('budapp.apps.home.urls')),
+    path('forms/', include('budapp.apps.core.forms.urls')),
 ]
