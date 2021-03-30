@@ -13,13 +13,9 @@ class Field(models.Model):
         on_delete=models.CASCADE,
         related_name='table')
     name = models.CharField(u'Name', max_length=50)
-    label = models.CharField(u'Label', max_length=100)
-    help_text = models.CharField(
-        u'Help text', max_length=100, blank=True, null=True)
     description = models.TextField(u'Description', null=True, blank=True)
     required = models.BooleanField('Required', default=False)
     unique = models.BooleanField('Unique', default=False)
-    order = models.IntegerField('Order', default=0)
     element = models.CharField(
         'Element',
         choices=FIELD_ELEMENTS,

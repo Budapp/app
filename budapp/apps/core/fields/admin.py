@@ -6,10 +6,10 @@ from .models import (
 
 
 class FieldAdmin(admin.ModelAdmin):
-    list_display = ('table', 'name', 'label', 'element', 'input_type',
-                    'description', 'help_text', 'required', 'unique', 'order')
+    list_display = ('table', 'name',  'element', 'input_type',
+                    'description', 'required', 'unique',)
     search_fields = ('name', 'description', 'element',
-                     'input_type', 'help_text')
+                     'input_type',)
     list_filter = ('name', 'element', 'input_type',
                    'required', 'unique', 'table__name',)
 
@@ -23,9 +23,7 @@ class FieldAdmin(admin.ModelAdmin):
         ('Basic configuration', {
             'fields': ('element', 'input_type',)
         }),
-        ('Display configuration', {
-            'fields': ('label', 'help_text', 'order',)
-        }),
+   
         ('Validation configuration', {
             'fields': ('required', 'unique',)
         }),
