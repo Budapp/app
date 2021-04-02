@@ -5,6 +5,7 @@ from budapp.helpers import url as url_helper
 
 from .models import (
     Form,
+    FormStep,
     FormField,
 )
 
@@ -13,8 +14,12 @@ class FormFieldInline(admin.TabularInline):
     model = FormField
 
 
+class FormStepInline(admin.TabularInline):
+    model = FormStep
+
+
 class FormAdmin(admin.ModelAdmin):
-    inlines = [FormFieldInline]
+    inlines = [FormStepInline]
     list_display = ('name', 'description', 'go_to_form_page')
     search_fields = ('name', 'description',)
     list_filter = ('name',)
@@ -28,12 +33,29 @@ class FormAdmin(admin.ModelAdmin):
     def go_to_form_page(self, obj):
         obj_url = url_helper.get_url_by_name(
             'budapp_model_basic_form',
-            ** {'table_id': obj.pk})
+            ** {'pk': obj.pk})
         return format_html(
             f'<a href="{obj_url}" target="_blank">Click to change</a>')
 
     go_to_form_page.allow_tags = True
 
 
+class FormStepAdmin(admin.ModelAdmin):
+    inlines = [FormFieldInline]
+    list_display = ('form', 'name', 'description',)
+    search_fields = ('name', 'description',)
+    list_filter = ('name', 'form')
+    fieldsets = (
+        ('Form', {
+            'fields': ('form',)
+        }),
+        ('Información básica', {
+            'fields': ('name', 'description',)
+        }),
+
+    )
+
+
 admin.site.register(Form, FormAdmin)
+admin.site.register(FormStep, FormStepAdmin)
 admin.site.register(FormField)

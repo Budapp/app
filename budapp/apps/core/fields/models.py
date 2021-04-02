@@ -11,7 +11,7 @@ class Field(models.Model):
     table = models.ForeignKey(
         'table.Table',
         on_delete=models.CASCADE,
-        related_name='table')
+        related_name='fields')
     name = models.CharField(u'Name', max_length=50)
     description = models.TextField(u'Description', null=True, blank=True)
     required = models.BooleanField('Required', default=False)

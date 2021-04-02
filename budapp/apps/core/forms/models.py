@@ -1,5 +1,18 @@
 from django.db import models
 
+"""
+Form structure
+|----------------|
+| Form           |
+|----------------|
+|   Form steps   |
+|----------------|
+|    Form fields |
+|----------------|
+|         Field  |
+|----------------|
+"""
+
 
 class Form (models.Model):
     name = models.CharField(u'Name', max_length=200)
@@ -13,8 +26,22 @@ class Form (models.Model):
         return self.name
 
 
-class FormField(models.Model):
+class FormStep(models.Model):
     form = models.ForeignKey(Form, on_delete=models.CASCADE)
+    
+    name = models.CharField(u'Name', max_length=200, blank=True, null=True)
+    description = models.TextField(blank=True, null=True)
+    order = models.IntegerField(default=0)
+
+    class Meta:
+        verbose_name = 'Form Step'
+        verbose_name_plural = 'Form Steps'
+
+    def __str__(self):
+        return self.name
+
+class FormField(models.Model):
+    form_step = models.ForeignKey(FormStep, on_delete=models.CASCADE)
     field = models.ForeignKey('fields.Field', on_delete=models.CASCADE)
 
     class Meta:
@@ -22,4 +49,4 @@ class FormField(models.Model):
         verbose_name_plural = 'Form fields'
 
     def __str__(self):
-        return str(self.field)
+        return f'{self.field} - {self.form_step}'

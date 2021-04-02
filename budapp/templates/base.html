@@ -6,14 +6,29 @@
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" type="text/css" href="{% static 'css/boostrap.min.css' %}">
     <link rel="stylesheet" type="text/css" href="https://getbootstrap.com/docs/5.0/examples/sidebars/sidebars.css">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/base.css' %}">
 
     <title>Document</title>
 </head>
-<body>
+<body class="bg-light">
     {% include 'components/sidebar.html' %}
-    {% block content %}{% endblock content %}
+    <div class="container">
+        <main>
+            {% block content %}{% endblock content %}
+        </main>
+
+    <footer class="my-5 pt-5 text-muted text-center text-small">
+        <p class="mb-1">© {% now 'Y'%} - BudApp</p>
+        <ul class="list-inline">
+        <li class="list-inline-item"><a href="#">Privacy</a></li>
+        <li class="list-inline-item"><a href="#">Terms</a></li>
+        <li class="list-inline-item"><a href="#">Support</a></li>
+        </ul>
+    </footer>
+</div>
+
 </body>
 </html>
