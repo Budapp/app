@@ -16,10 +16,8 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import include, path
 
+
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('auth/', include('budapp.apps.authentication.urls')),
-    path('dashboard/', include('budapp.apps.home.urls')),
-    path('forms/', include('budapp.apps.core.forms.urls')),
-    path('table/', include('budapp.apps.core.table.urls')),
+    path('core/', include('budapp.apps.core.urls')),
 ]
