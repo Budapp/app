@@ -1,6 +1,6 @@
 from django import forms
 
-from budapp.apps.core.table import services as table_services
+from budapp.apps.core.table.services import table as table_services
 from budapp.apps.core.forms.services.FormGenerator import FormGenerator
 
 
@@ -14,3 +14,7 @@ class CreateModelDocumentForm(forms.Form):
 
         self.fields = FormGenerator(table.fields.all()).generate_fields()
 
+    def create_document(self):
+        import ipdb
+        ipdb.set_trace()
+        print()

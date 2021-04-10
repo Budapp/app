@@ -30,7 +30,8 @@
 
       </div>
       <div class="col-md-7 col-lg-8">
-        <h4 class="mb-3">Billing address</h4>
+        <h4 class="mb-3">Form title</h4>
+        <p></p>
         <form class="needs-validation" method="POST" action="">
           {% csrf_token %}
           {% for field in form %}
@@ -47,11 +48,9 @@
               </div>
           {% endfor %}
 
-            
-
           <hr class="my-4">
 
-          <button class="w-100 btn btn-primary btn-lg" type="submit">Continue to checkout</button>
+          <button class="w-100 btn btn-primary btn-lg" type="submit">Save</button>
         </form>
       </div>
     </div>

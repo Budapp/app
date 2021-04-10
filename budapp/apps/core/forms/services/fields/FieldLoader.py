@@ -19,7 +19,6 @@ class FieldLoader(object):
         return success
 
     def load(self):
-        
         if self._validate_element():
             field_class =  FIELD_ELEMENT_MAP[self.field.element]
             field_class_instance = field_class(self.field)

@@ -1,4 +1,4 @@
-from .models import Table
+from ..models import Table
 
 
 def get_table(**kwargs):

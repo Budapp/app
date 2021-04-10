@@ -3,11 +3,8 @@ from django.views.generic.edit import FormView
 from django.views.generic import DetailView
 
 from budapp.helpers import url as url_helper
-from budapp.apps.core.table import (
-    services as table_service,
-    models as table_models
-) 
-
+from budapp.apps.core.table import models as table_models
+from budapp.apps.core.table.services import table as table_service
 from .dynamic_form import DynamicForm
 
 class ModelFormView(DetailView, FormView):

@@ -17,9 +17,17 @@ class CreateModelDocumentView(DetailView, FormView):
         return self.kwargs
 
     def form_valid(self, form):
+        form.create_document()
+
         return super().form_valid(form)
 
     def get_success_url(self):
         queryparams = '?msg=ok'
         return url_helper.get_url_by_name(
-            'budapp_model_create_document') + queryparams
+            'budapp_model_create_document',
+            **{'pk': self.kwargs['pk']}) + queryparams
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+
+        return context
