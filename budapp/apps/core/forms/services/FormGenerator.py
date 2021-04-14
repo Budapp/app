@@ -7,9 +7,8 @@ class FormGenerator(object):
 
     def render_field(self, field):
         field_loader = FieldLoader(field)
-        
-        return field_loader.load()
 
+        return field_loader.load()
 
     def generate_fields(self):
         fields_rendered = {}

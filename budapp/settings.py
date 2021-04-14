@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'budapp.apps.core',
     'budapp.apps.core.fields',
     'budapp.apps.core.table',
+    'budapp.apps.core.document',
 ]
 
 MIDDLEWARE = [
