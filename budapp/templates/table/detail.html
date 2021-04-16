@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="d-flex align-items-center p-3 my-3 text-white bg-purple rounded shadow-sm">
+    <i class="fas fa-table"></i>
+    <div class="lh-1">
+      <h1 class="h6 mb-0 text-white lh-1">Gestión del modelo {{object.name}}</h1>
+      <small></small>
+    </div>
+  </div>
+
+<div class="row">
+    <div class="col-lg-4 text-center">
+        <i class="fas fa-users big-icon"></i>
+        <h2>Permisos</h2>
+        <p>
+            Asigna permisos a los usuarios para que puedan hacer consultas de Lectura, Creación, Actualizar y/o Eliminar registros para este modelo.
+        </p>
+        <p><a class="btn btn-secondary" href="#">Gestionar »</a></p>
+    </div>
+    <div class="col-lg-4 text-center">
+        <i class="fas fa-database big-icon"></i>
+        <h2>Esquema</h2>
+        <p>
+            Describe tu modelo, asigna campos de diferentes tipos (númericos, selectores, etc...), reglas de validación, y más.    
+        </p>
+        <p><a class="btn btn-secondary" href="#">Gestionar »</a></p>
+    </div>
+    <div class="col-lg-4 text-center">
+        <i class="fas fa-list-ol big-icon"></i>
+        <h2>Ver listado</h2>
+        <p>
+            Visualiza y filtra todos los registros creados para este modelo.    
+        </p>
+        <p><a class="btn btn-secondary" href="#">Gestionar »</a></p>
+    </div>
+</div>
+{% endblock content %}

@@ -13,6 +13,11 @@ class ListTable(ListView):
     model = TableModel
 
 
+class DetailTable(DetailView):
+    model = TableModel
+    template_name = 'table/detail.html'
+
+
 class CreateModelDocumentView(DetailView, FormView):
     form_class = CreateModelDocumentForm
     model = TableModel
