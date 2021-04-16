@@ -1,11 +1,16 @@
 from django.shortcuts import render
 from django.views.generic.edit import FormView
-from django.views.generic import DetailView
+from django.views.generic import DetailView, ListView
 
 from budapp.helpers import url as url_helper
 from budapp.apps.core.table.models import Table as TableModel
 
 from .dynamic_form import CreateModelDocumentForm
+
+
+class ListTable(ListView):
+    template_name = 'table/list.html'
+    model = TableModel
 
 
 class CreateModelDocumentView(DetailView, FormView):
